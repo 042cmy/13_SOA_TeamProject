@@ -13,6 +13,12 @@ def hi_world():
 
     html, max_mag = fancy_html(code, pd_mag_data)
     max_mag_image_path = get_max_magnitude_path(max_mag)
+    mag_map = make_map(code, pd_mag_data, max_mag_image_path, html)
+
+    map_image = map_capture(mag_map)
+
+    cropped_image = crop_image(map_image)
+    base64_cropped_image = image2base64('./cropped_map.jpg')
 
     return max_mag_image_path
 
