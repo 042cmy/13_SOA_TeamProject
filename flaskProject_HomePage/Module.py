@@ -16,7 +16,7 @@ import hmac
 import base64
 import time
 
-mag_api_path = './mag_api_folder/'
+mag_api_path = '/home/ubuntu/git/13_SOA_TeamProject/flaskProject_HomePage/mag_api_folder/'
 db = pymysql.connect(host='127.0.0.1', port=3306, user='root',passwd='1234',db='soa_earthquate_db',charset='utf8')
 
 def coordinate2code(lat,lon):
