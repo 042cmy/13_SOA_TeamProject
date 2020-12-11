@@ -10,6 +10,7 @@ import os
 from PIL import Image
 import time
 from selenium import webdriver
+from pyvirtualdisplay import Display
 
 import hashlib
 import hmac
@@ -156,13 +157,18 @@ def map_capture(m):
     tmpurl='file://{path}/{mapfile}'.format(path=os.getcwd(),mapfile=fn)
     m.save(fn)
 
-    chrome_path = mag_api_path+'chromedriver'
+    chrome_path = mag_api_path+'chromedriver_ubunt'
+
+    display = Display(visible=0, size=(1920, 1080))
+    display.start()
+
     browser = webdriver.Chrome(chrome_path)
     browser.get(tmpurl)
     #Give the map tiles some time to load
     #time.sleep(delay)
     browser.save_screenshot('./map.png')
     browser.quit()
+    display.stop()
     return Image.open('./map.png')
 
 def crop_image(im):
