@@ -15,6 +15,7 @@ from pyvirtualdisplay import Display
 import hashlib
 import hmac
 import base64
+import sys
 import time
 
 mag_api_path = '/home/ubuntu/git/13_SOA_TeamProject/flaskProject_HomePage/mag_api_folder/'

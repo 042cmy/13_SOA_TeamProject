@@ -8,6 +8,9 @@ def hi_world():
     lat = 126.97195
     lon = 37.58267
 
+    sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
+
     code = coordinate2code(lat, lon)  # 카카오 API 함수 호출(횟수 제한)
     pd_mag_data = code2pandas_data(code)
 
