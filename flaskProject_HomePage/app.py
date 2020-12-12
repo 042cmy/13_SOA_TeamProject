@@ -3,7 +3,7 @@ from flask import render_template
 from Module import *
 app = Flask(__name__)
 
-@app.route('/?phone=<string:phone>&lat:<float:latitude>&lon:<float:longnitude>')
+@app.route('/?phone/<string:phone>/lat/<float:latitude>/lon/<float:longnitude>')
 def hi_world(phone,latitude,longnitude):
     lat = latitude
     lon = longnitude
