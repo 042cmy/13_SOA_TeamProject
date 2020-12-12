@@ -70,12 +70,12 @@ def hi_world(phone,latitude,longnitude):
     #res.status_code  # 응답 코드
     #res.raise_for_status()  # 200 OK 코드가 아닌 경우 에러 발동
 
-    area = pd_mag_data.values[0][1].encode('raw_unicode_escape')
+    area = pd_mag_data.values[0][1]
     #area = area.decode('raw_unicode_escape')
     #.decode('raw_unicode_escape')
     #area.encode('raw_unicode_escape')
 
-    data = {'type':type(area),'print':area,'raw':pd_mag_data.values[0][1],'raw_type':type(pd_mag_data.values[0][1])}
+    data = {'type':type(area),'print':area}
      # json response일 경우 딕셔너리 타입으로 바로 변환
     #data = {'sendMMS': res.json()['statusName'], 'sendTo': to, 'area': area,
     #        'mag3': pd_mag_data.values[0][4],
