@@ -75,7 +75,7 @@ def hi_world(phone,latitude,longnitude):
     #.decode('raw_unicode_escape')
     #area.encode('raw_unicode_escape')
 
-    data = {'type':type(area),'print':area}
+    #data = {'type':type(area),'print':area}
      # json response일 경우 딕셔너리 타입으로 바로 변환
     #data = {'sendMMS': res.json()['statusName'], 'sendTo': to, 'area': area,
     #        'mag3': pd_mag_data.values[0][4],
@@ -83,7 +83,7 @@ def hi_world(phone,latitude,longnitude):
     #        'mag8': pd_mag_data.values[0][9],
     #        'mag10': pd_mag_data.values[0][11], 'mag11': pd_mag_data.values[0][12], 'mag12': pd_mag_data.values[0][13]}
 
-    return data
+    return area
 
 @app.route('/')
 def hello_world():
