@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 import folium
 import base64
 import requests
@@ -141,6 +142,8 @@ def make_map(code,result_pd, max_mag_image_path,html):
     m = folium.Map([result_pd.values[0][2],result_pd.values[0][3]], zoom_start=15)
 
     encoded = base64.b64encode(open(max_mag_image_path, 'rb').read()).decode()
+
+    html.encode('raw_unicode_escape')
 
     iframe = folium.IFrame(html.format(encoded), width=300, height=233)
 
