@@ -3,10 +3,11 @@ from flask import render_template
 from Module import *
 app = Flask(__name__)
 
-@app.route('/abc')
-def hi_world():
-    lat = 126.97195
-    lon = 37.58267
+@app.route('/?phone=<string:phone>&lat:<float:latitude>&lon:<float:longnitude>')
+def hi_world(phone,latitude,longnitude):
+    lat = latitude
+    lon = longnitude
+    to = phone
 
     sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
     sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
@@ -24,7 +25,6 @@ def hi_world():
     base64_cropped_image = image2base64('./cropped_map.jpg')
 
     contnet = "(%s,  " % lat + "%s)" % lon + "의 지진정보"
-    to = "01046436884"
 
     timestamp = int(time.time() * 1000)
     timestamp = str(timestamp)  # 1970년1월 1일 00:00:00 협정 세계시(UTC)부터의 경과 시간을 밀리초(Millisecond)로 나타낸 것
