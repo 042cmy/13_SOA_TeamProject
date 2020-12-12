@@ -66,21 +66,22 @@ def hi_world(phone,latitude,longnitude):
     }
     res = requests.post(apiUrl, headers=headers, data=body2)
 
-    res.request  # 내가 보낸 request 객체에 접근 가능
-    res.status_code  # 응답 코드
-    res.raise_for_status()  # 200 OK 코드가 아닌 경우 에러 발동
+    #res.request  # 내가 보낸 request 객체에 접근 가능
+    #res.status_code  # 응답 코드
+    #res.raise_for_status()  # 200 OK 코드가 아닌 경우 에러 발동
 
     area = pd_mag_data.values[0][1].area.encode('raw_unicode_escape')
-    area = area.decode('raw_unicode_escape')
+    #area = area.decode('raw_unicode_escape')
     #.decode('raw_unicode_escape')
     #area.encode('raw_unicode_escape')
 
+    data = {'type':type(area),'print':area,'raw':pd_mag_data.values[0][1],'raw_type':type(pd_mag_data.values[0][1])}
      # json response일 경우 딕셔너리 타입으로 바로 변환
-    data = {'sendMMS': res.json()['statusName'], 'sendTo': to, 'area': area,
-            'mag3': pd_mag_data.values[0][4],
-            'mag4': pd_mag_data.values[0][5], 'mag5': pd_mag_data.values[0][6], 'mag7': pd_mag_data.values[0][8],
-            'mag8': pd_mag_data.values[0][9],
-            'mag10': pd_mag_data.values[0][11], 'mag11': pd_mag_data.values[0][12], 'mag12': pd_mag_data.values[0][13]}
+    #data = {'sendMMS': res.json()['statusName'], 'sendTo': to, 'area': area,
+    #        'mag3': pd_mag_data.values[0][4],
+    #        'mag4': pd_mag_data.values[0][5], 'mag5': pd_mag_data.values[0][6], 'mag7': pd_mag_data.values[0][8],
+    #        'mag8': pd_mag_data.values[0][9],
+    #        'mag10': pd_mag_data.values[0][11], 'mag11': pd_mag_data.values[0][12], 'mag12': pd_mag_data.values[0][13]}
 
     return data
 
