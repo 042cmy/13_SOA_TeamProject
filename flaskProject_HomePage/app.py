@@ -1,4 +1,4 @@
-#-*-coding:utf-8-*-
+#-*- coding: utf-8 -*-
 from flask import Flask, jsonify
 from flask import render_template
 from Module import *
@@ -71,7 +71,7 @@ def hi_world(phone,latitude,longnitude):
     res.raise_for_status()  # 200 OK 코드가 아닌 경우 에러 발동
 
     area = pd_mag_data.values[0][1]
-    area.encode('raw_unicode_escape')
+    #area.encode('raw_unicode_escape')
 
      # json response일 경우 딕셔너리 타입으로 바로 변환
     data = {'sendMMS': res.json()['statusName'], 'sendTo': to, 'area': area,
