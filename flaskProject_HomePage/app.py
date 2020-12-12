@@ -64,13 +64,13 @@ def hi_world(phone,latitude,longnitude):
         'x-ncp-iam-access-key': access_key,
         'x-ncp-apigw-signature-v2': make_signature(uri, access_key, timestamp)
     }
-    res = requests.post(apiUrl, headers=headers, data=body2)
+    #res = requests.post(apiUrl, headers=headers, data=body2)
 
     #res.request  # 내가 보낸 request 객체에 접근 가능
     #res.status_code  # 응답 코드
     #res.raise_for_status()  # 200 OK 코드가 아닌 경우 에러 발동
 
-    area = pd_mag_data.values[0][1].area.encode('raw_unicode_escape')
+    area = pd_mag_data.values[0][1].encode('raw_unicode_escape')
     #area = area.decode('raw_unicode_escape')
     #.decode('raw_unicode_escape')
     #area.encode('raw_unicode_escape')
