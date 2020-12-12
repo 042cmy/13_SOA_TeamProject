@@ -3,11 +3,12 @@ from flask import render_template
 from Module import *
 app = Flask(__name__)
 
-@app.route('/?phone/<string:phone>/lat/<float:latitude>/lon/<float:longnitude>')
+@app.route('/<phone>/<float:latitude>/<float:longnitude>')
 def hi_world(phone,latitude,longnitude):
+    to = phone
     lat = latitude
     lon = longnitude
-    to = phone
+
 
     sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
     sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
