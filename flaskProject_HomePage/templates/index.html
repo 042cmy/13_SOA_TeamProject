@@ -48,7 +48,7 @@
                     </div>
                     <p class="lead mb-5">입력한 좌표의 법정동을 기준으로 지진 발생의 횟수를 알려줍니다.<br>진앙지의 거리와 지진의 규모를 변수로 법정동의 지진 발생 횟수를 계산합니다. </p>
                     <div class="social-icons">
-                        <a class="social-icon" href="#"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://github.com/042cmy/13_SOA_TeamProject.git"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </section>
@@ -85,7 +85,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">메시지 전송</h3>
                             <div class="subheading mb-3">지도 이미지 전송</div>
-                            <p>법정동을 중심으로 지진 정보가 표현된 지도 이미지를 카카오API로 전송합니다.</p>
+                            <p>법정동을 중심으로 지진 정보가 표현된 지도 이미지를 네이버MMS API로 전송합니다.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">지도 전송</span></div>
                     </div>
@@ -100,16 +100,20 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">입력</h3>
                             <div class="subheading mb-3">GET</div>
-                            <div>십진수 형태(Decimal Degree)의 위도와 경도를 입력해야합니다.</div>
+                            <pre data-language="html"><code>3.34.144.159:5000/'phone'/'lat'/'lon'</code></pre>
                             <p>
                             <table>
-                                <tr>
-                                <td>'lon' :</td>
-                                <td> 위도</td>
+                            <tr>
+                                <td>'phone' :</td>
+                                <td> 보낼 전화번호 ex)01012345678</td>
                             </tr>
-                                <tr>
+                            <tr>
                                 <td>'lat' :</td>
-                                <td> 경도</td>
+                                <td> 십진수 형태(Decimal Degree)의 대한민국 경도</td>
+                            </tr>
+                            <tr>
+                                <td>'lon' :</td>
+                                <td> 십진수 형태(Decimal Degree)의 대한민국 위도</td>
                             </tr>
                             </table>
                             </p>
@@ -121,9 +125,9 @@
                             <h3 class="mb-0">출력</h3>
                             <div class="subheading mb-3">Jason</div>
                             <pre data-language="json"><code>{
-    "emd_code": 11110104,
-    "emd_name": "효자동",
-    "sended": true,
+    "sendTo": "01012345678",
+    "area": "\uce68\uc0b0\ub3d9",
+    "sendMMS": "success/fail",
     "mags": [
                 {
                 "mag3" : 10,
@@ -140,9 +144,9 @@
             ]
 }</code></pre>
                             <div class="subheading mb-3">반환값 설명</div>
-                            <p>"emd_code" : 법정동의 코드로 반환값은 int형입니다.
-                            <br>"emd_name" : 법정동의 이름으로 반환값은 string형입니다.
-                            <br>"sended" : 해당 법정동의 지진 정보가 메시지로 전송되었는지 확인하는 것으로 반환값은 boolean형입니다.
+                            <p>"sendTo" : MMS를 받는 전화번호이고 string형입니다.
+                            <br>"area" : 법정동의 이름으로 반환값은 한글이고 UTF-8 형식입니다.
+                            <br>"sendMMS" : 해당 법정동의 지진 정보가 메시지로 전송되었는지 확인하는 것으로 반환값은 boolean형입니다.
                             <br>"mags" : 해당 법정동의 지진 횟수가 저장된 배열입니다. 진도 3~12의 발생 횟수를 int형으로 반환합니다.</p>
                             <div class="subheading mb-3">전송된 이미지</div>
                             <div><img src="static/assets/img/cropped_map.png" alt="" /></div>
@@ -165,5 +169,6 @@
         <script src="static/js/scripts.js"></script>
         <script src="static/js/rainbow.js"></script>
         <script src="static/js/language/json.js"></script>
+    <script src="static/js/language/html.js"></script>
     </body>
 </html>

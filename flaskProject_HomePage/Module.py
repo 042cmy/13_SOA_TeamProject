@@ -176,7 +176,7 @@ def map_capture(m):
     return Image.open('./map.png')
 
 def crop_image(im):
-    area = (284,20,710,400)
+    area = (184,120,610,500)
     cropped_img = im.crop(area)
     cropped_img = cropped_img.convert("RGB")
     cropped_img.save('./cropped_map.jpg')

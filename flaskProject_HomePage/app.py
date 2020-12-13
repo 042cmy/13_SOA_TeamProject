@@ -70,15 +70,14 @@ def hi_world(phone,latitude,longnitude):
     res.status_code  # 응답 코드
     res.raise_for_status()  # 200 OK 코드가 아닌 경우 에러 발동
 
-    area = pd_mag_data.values[0][1]
 
      # json response일 경우 딕셔너리 타입으로 바로 변환
-    data = {'sendMMS': res.json()['statusName'], 'sendTo': to, 'area': area,
-            'mag3': pd_mag_data.values[0][4],
-            'mag4': pd_mag_data.values[0][5], 'mag5': pd_mag_data.values[0][6], 'mag7': pd_mag_data.values[0][8],
-            'mag8': pd_mag_data.values[0][9],
-            'mag10': pd_mag_data.values[0][11], 'mag11': pd_mag_data.values[0][12], 'mag12': pd_mag_data.values[0][13]}
+    data1 = dict(sendTo=to, area=pd_mag_data.values[0][1], sendMMS=res.json()['statusName'])
+    data2 = dict(mag3=pd_mag_data.values[0][4], mag4=pd_mag_data.values[0][5], mag5=pd_mag_data.values[0][6],
+         mag6=pd_mag_data.values[0][7], mag7=pd_mag_data.values[0][8], mag8=pd_mag_data.values[0][9],
+         mag9=pd_mag_data.values[0][10], mag10=pd_mag_data.values[0][11], mag11=pd_mag_data.values[0][12], mag12=pd_mag_data.values[0][13])
 
+    data = [data1,data2]
     return data
 
 @app.route('/')
