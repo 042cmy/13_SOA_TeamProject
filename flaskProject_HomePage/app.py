@@ -77,8 +77,8 @@ def hi_world(phone,latitude,longnitude):
          mag6=pd_mag_data.values[0][7], mag7=pd_mag_data.values[0][8], mag8=pd_mag_data.values[0][9],
          mag9=pd_mag_data.values[0][10], mag10=pd_mag_data.values[0][11], mag11=pd_mag_data.values[0][12], mag12=pd_mag_data.values[0][13])
 
-    data = [data1,data2]
-    return data1
+    data_1_2 = [data1,data2]
+    return render_template('view.html',data=data_1_2)
 
 @app.route('/')
 def hello_world():
